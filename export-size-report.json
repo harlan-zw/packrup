@@ -38,9 +38,9 @@
     {
       "name": "unpackToArray",
       "path": "dist/index.mjs",
-      "minified": 393,
-      "minzipped": 230,
-      "bundled": 781
+      "minified": 388,
+      "minzipped": 229,
+      "bundled": 788
     },
     {
       "name": "unpackToString",
