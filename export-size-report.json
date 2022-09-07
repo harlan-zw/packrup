@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "name": "packrup",
+    "dependencies": [
+      "@antfu/eslint-config",
+      "@types/fs-extra",
+      "@vitest/ui",
+      "bumpp",
+      "eslint",
+      "fs-extra",
+      "jsdom",
+      "typescript",
+      "unbuild",
+      "utility-types",
+      "vitest"
+    ],
+    "versions": {
+      "export-size": "0.5.2",
+      "esbuild": "^0.13.8",
+      "brotli-size": "^4.0.0"
+    }
+  },
+  "exports": [
+    {
+      "name": "packArray",
+      "path": "dist/index.mjs",
+      "minified": 482,
+      "minzipped": 279,
+      "bundled": 1065
+    },
+    {
+      "name": "packObject",
+      "path": "dist/index.mjs",
+      "minified": 265,
+      "minzipped": 187,
+      "bundled": 598
+    },
+    {
+      "name": "unpackToString",
+      "path": "dist/index.mjs",
+      "minified": 257,
+      "minzipped": 181,
+      "bundled": 491
+    },
+    {
+      "name": "unpackToArray",
+      "path": "dist/index.mjs",
+      "minified": 259,
+      "minzipped": 179,
+      "bundled": 511
+    },
+    {
+      "name": "packString",
+      "path": "dist/index.mjs",
+      "minified": 128,
+      "minzipped": 103,
+      "bundled": 242
+    }
+  ]
+}
