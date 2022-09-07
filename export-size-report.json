@@ -24,9 +24,9 @@
     {
       "name": "packArray",
       "path": "dist/index.mjs",
-      "minified": 482,
-      "minzipped": 279,
-      "bundled": 1065
+      "minified": 504,
+      "minzipped": 283,
+      "bundled": 1098
     },
     {
       "name": "packObject",
