@@ -7,7 +7,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   resolve: {
     alias: {
-      packerup: resolve(__dirname, 'src/index.ts'),
+      packrup: resolve(__dirname, 'src/index.ts'),
     },
   },
   test: {

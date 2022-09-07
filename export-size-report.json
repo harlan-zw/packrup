@@ -1,6 +1,6 @@
 {
   "meta": {
-    "name": "packerup",
+    "name": "packrup",
     "dependencies": [
       "@antfu/eslint-config",
       "@types/fs-extra",

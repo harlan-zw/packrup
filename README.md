@@ -1,13 +1,13 @@
-_<h1 align='center'>packerup</h1>
+<h1 align='center'>packrup</h1>
 
 <p align="center">
-<a href='https://github.com/harlan-zw/packerup/actions/workflows/test.yml'>
-<img src='https://github.com/harlan-zw/packerup/actions/workflows/test.yml/badge.svg' >
+<a href='https://github.com/harlan-zw/packrup/actions/workflows/test.yml'>
+<img src='https://github.com/harlan-zw/packrup/actions/workflows/test.yml/badge.svg' >
 </a>
-<a href="https://www.npmjs.com/package/packerup" target="__blank"><img src="https://img.shields.io/npm/v/packerup?color=2B90B6&label=" alt="NPM version"></a>
-<a href="https://www.npmjs.com/package/packerup" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/packerup?color=349dbe&label="></a>
+<a href="https://www.npmjs.com/package/packrup" target="__blank"><img src="https://img.shields.io/npm/v/packrup?color=2B90B6&label=" alt="NPM version"></a>
+<a href="https://www.npmjs.com/package/packrup" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/packrup?color=349dbe&label="></a>
 <br>
-<a href="https://github.com/harlan-zw/packerup" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/harlan-zw/packerup?style=social"></a>
+<a href="https://github.com/harlan-zw/packrup" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/harlan-zw/packrup?style=social"></a>
 </p>
 
 <p align="center">
@@ -34,13 +34,13 @@ Simple utils to pack (and unpack) arrays and strings to a flat object.
 - Pack arrays and strings to a flat object
 - Handles duplicates with `key`
 - Supports nested key selections with `dot.notation`
-- 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/packerup/blob/main/export-size-report.json))
+- 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/packrup/blob/main/export-size-report.json))
 
 
 ## Installation
 
 ```bash
-npm add -D packerup
+npm add -D packrup
 ```
 
 ## Pack API
@@ -60,7 +60,7 @@ npm add -D packerup
   By default, will choose first 2 keys of an object.
 
 ```ts
-import { packArray } from 'packerup'
+import { packArray } from 'packrup'
 
 packArray([
   { httpEquiv: 'content-security-policy', content: 'content-src none' }
@@ -86,7 +86,7 @@ packArray([
   By default, will choose first 2 keys of an object.
 
 ```ts
-import { packObject } from 'packerup'
+import { packObject } from 'packrup'
 
 packObject({ 
   image: {
@@ -109,7 +109,7 @@ packObject({
 ### packString
 
 ```ts
-import { packString } from 'packerup'
+import { packString } from 'packrup'
 
 const head = packString('src="https://example.com/image.jpg" width="800" height="600"')
 // {
@@ -137,7 +137,7 @@ const head = packString('src="https://example.com/image.jpg" width="800" height=
   By default, will choose first 2 keys of an object.
 
 ```ts
-import { unpackToArray } from 'packerup'
+import { unpackToArray } from 'packrup'
 
 unpackToArray({
   'content-security-policy': 'content-src none',
@@ -161,7 +161,7 @@ unpackToArray({
   By default, will choose first 2 keys of an object.
 
 ```ts
-import { unpackToString } from 'packerup'
+import { unpackToString } from 'packrup'
 
 packObject({ 
   image: {
@@ -184,7 +184,7 @@ packObject({
 ### packString
 
 ```ts
-import { packString } from 'packerup'
+import { packString } from 'packrup'
 
 const head = packString('src="https://example.com/image.jpg" width="800" height="600"')
 // {
@@ -206,4 +206,4 @@ const head = packString('src="https://example.com/image.jpg" width="800" height=
 
 ## License
 
-MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)_
+MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)
