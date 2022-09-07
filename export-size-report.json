@@ -24,16 +24,23 @@
     {
       "name": "packArray",
       "path": "dist/index.mjs",
-      "minified": 504,
-      "minzipped": 283,
-      "bundled": 1098
+      "minified": 591,
+      "minzipped": 335,
+      "bundled": 1341
     },
     {
       "name": "packObject",
       "path": "dist/index.mjs",
-      "minified": 265,
-      "minzipped": 187,
-      "bundled": 598
+      "minified": 359,
+      "minzipped": 230,
+      "bundled": 792
+    },
+    {
+      "name": "unpackToArray",
+      "path": "dist/index.mjs",
+      "minified": 365,
+      "minzipped": 215,
+      "bundled": 715
     },
     {
       "name": "unpackToString",
@@ -43,18 +50,18 @@
       "bundled": 491
     },
     {
-      "name": "unpackToArray",
-      "path": "dist/index.mjs",
-      "minified": 259,
-      "minzipped": 179,
-      "bundled": 511
-    },
-    {
       "name": "packString",
       "path": "dist/index.mjs",
       "minified": 128,
       "minzipped": 103,
       "bundled": 242
+    },
+    {
+      "name": "InternalKeySymbol",
+      "path": "dist/index.mjs",
+      "minified": 30,
+      "minzipped": 34,
+      "bundled": 88
     }
   ]
 }
