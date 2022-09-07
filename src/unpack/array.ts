@@ -15,11 +15,11 @@ export function unpackToArray(input: Record<string, any>, options: UnpackArrayOp
 
   for (const [k, v] of Object.entries(input)) {
     unpacked.push(...(Array.isArray(v) ? v : [v]).map((i) => {
-      // handle nested objects
-      if (typeof i === 'object')
-        i = unpackToArray(i!, options)
       const ctx = { key: k, value: i }
       const val = vFn(ctx)
+      // handle nested objects
+      if (typeof val === 'object')
+        return unpackToArray(val!, options)
 
       if (Array.isArray(val))
         return val
