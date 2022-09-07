@@ -125,10 +125,10 @@ describe('pack array', () => {
 
     expect(out).toMatchInlineSnapshot(`
       {
+        "content-security-policy": "default-src 'self' https://example.com; content-src none",
         "description": "desc",
         "fb:app_id": "1234567890",
         "og:locale:alternate": "zh",
-        "policy": "default-src 'self' https://example.com; content-src none",
         "refresh": "5;url=https://example.com",
       }
     `)
