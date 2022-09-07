@@ -1,13 +1,13 @@
-_<h1 align='center'>packerup</h1>
+<h1 align='center'>packerup</h1>
 
 <p align="center">
-<a href='https://github.com/harlan-zw/zhead/actions/workflows/test.yml'>
-<img src='https://github.com/harlan-zw/zhead/actions/workflows/test.yml/badge.svg' >
+<a href='https://github.com/harlan-zw/packerup/actions/workflows/test.yml'>
+<img src='https://github.com/harlan-zw/packerup/actions/workflows/test.yml/badge.svg' >
 </a>
-<a href="https://www.npmjs.com/package/zhead" target="__blank"><img src="https://img.shields.io/npm/v/zhead?color=2B90B6&label=" alt="NPM version"></a>
-<a href="https://www.npmjs.com/package/zhead" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/zhead?color=349dbe&label="></a>
+<a href="https://www.npmjs.com/package/packerup" target="__blank"><img src="https://img.shields.io/npm/v/packerup?color=2B90B6&label=" alt="NPM version"></a>
+<a href="https://www.npmjs.com/package/packerup" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/packerup?color=349dbe&label="></a>
 <br>
-<a href="https://github.com/harlan-zw/zhead" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/harlan-zw/zhead?style=social"></a>
+<a href="https://github.com/harlan-zw/packerup" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/harlan-zw/packerup?style=social"></a>
 </p>
 
 <p align="center">
@@ -124,7 +124,7 @@ const head = packString('src="https://example.com/image.jpg" width="800" height=
 Define your meta tags in a simple object with full type-safety.
 
 ```ts
-import { defineHead, resolveMetaFlat } from 'zhead'
+import { defineHead, resolveMetaFlat } from 'packerup'
 
 const meta = unpackMeta({
     contentSecurityPolicy: {
@@ -148,7 +148,7 @@ const meta = unpackMeta({
 Turn array meta tags into a flat packed object.
 
 ```ts
-import { defineHead, resolveMetaFlat } from 'zhead'
+import { defineHead, resolveMetaFlat } from 'packerup'
 
 const meta = packMeta([
   {
@@ -185,11 +185,11 @@ Internally this function uses the `withDefaults` and `inferSocialShare` utilitie
 - Sets robots best practice
 
 ```ts
-import { resolveSeoHead, resolveMetaFlat } from 'zhead'
+import { resolveSeoHead, resolveMetaFlat } from 'packerup'
 
 const head = resolveSeoHead({
-  title: 'Learn about zHead - zHead',
-  description: 'Describing the basic usage of zHead.',
+  title: 'Learn about packerup - packerup',
+  description: 'Describing the basic usage of packerup.',
 })
 
 // {
@@ -225,8 +225,8 @@ const head = resolveSeoHead({
 ## Validation API
 
 ```ts
-import { resolveHead } from 'zhead'
-import { HeadSchema } from "@zhead/schema";
+import { resolveHead } from 'packerup'
+import { HeadSchema } from "@packerup/schema";
 
 const tags = resolveHead({
   meta: [
@@ -256,7 +256,7 @@ HeadSchema.safeParse(tags)
 ### generateHtml
 
 ```ts
-import { generateHtml } from 'zhead'
+import { generateHtml } from 'packerup'
 
 const html = generateHtml({
   title: 'test',
@@ -276,7 +276,7 @@ const html = generateHtml({
 ### generateTags
 
 ```ts
-import { generateTags } from 'zhead'
+import { generateTags } from 'packerup'
 
 const tags = generateTags({
   title: 'test',
@@ -322,4 +322,4 @@ const tags = generateTags({
 
 ## License
 
-MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)_
+MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)
