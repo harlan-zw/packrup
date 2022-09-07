@@ -12,7 +12,7 @@ export function packArray<T extends Record<string, any>[]>(input: T, options?: P
       packed[pKey].push(Object.values(packedObj)[0])
     }
     else {
-      packed[pKey.split('-').pop() || pKey] = packedObj[pKey]
+      packed[pKey.startsWith('key-') ? (pKey.split('-').pop() || pKey) : pKey] = packedObj[pKey]
     }
   }
   return packed
