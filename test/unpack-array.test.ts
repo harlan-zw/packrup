@@ -4,11 +4,14 @@ import { packArray, unpackToArray } from '../src'
 describe('unpack array', () => {
   it('basic', () => {
     const packed = unpackToArray({
-      src: 'https://example.com/image.jpg',
-      width: 800,
-      height: 600,
-      alt: 'My image',
-      secure_url: 'https://example.com/image.jpg',
+      description: 'test',
+      image: {
+        src: 'https://example.com/image.jpg',
+        width: 800,
+        height: 600,
+        alt: 'My image',
+        secure_url: 'https://example.com/image.jpg',
+      },
     }, {
       key: 'property',
       value: 'content',
@@ -18,12 +21,18 @@ describe('unpack array', () => {
         return `og:image:${key}`
       },
       resolveValueData: (value) => {
-        return typeof value === 'string' ? value : value.toString()
+        if (typeof value === 'number')
+          return value.toString()
+        return value
       },
     })
 
     expect(packed).toMatchInlineSnapshot(`
       [
+        {
+          "content": "test",
+          "property": "og:image:description",
+        },
         {
           "content": "https://example.com/image.jpg",
           "property": "og:image",
@@ -52,6 +61,7 @@ describe('unpack array', () => {
       {
         "og:image": "https://example.com/image.jpg",
         "og:image:alt": "My image",
+        "og:image:description": "test",
         "og:image:height": "600",
         "og:image:secure_url": "https://example.com/image.jpg",
         "og:image:width": "800",

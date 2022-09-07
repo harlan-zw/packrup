@@ -76,6 +76,62 @@ describe('pack array', () => {
     `)
   })
 
+  it('de-duping 2', () => {
+    const out = packArray([
+      {
+        name: 'description-my-key',
+        content: 'desc 1',
+        key: 'desc',
+      },
+      {
+        name: 'description-my-key',
+        content: 'desc 2',
+        key: 'desc',
+      },
+      {
+        name: 'description-my-key',
+        content: 'desc 3',
+        key: 'desc',
+      },
+    ])
+
+    expect(out).toMatchInlineSnapshot(`
+      {
+        "description-my-key": "desc 3",
+      }
+    `)
+  })
+
+  it('key resolving', () => {
+    const out = packArray([
+      {
+        name: 'description-my-key',
+        content: 'desc 1',
+        key: 'desc',
+      },
+      {
+        name: 'description-my-key',
+        content: 'desc 2',
+        key: 'desc',
+      },
+      {
+        name: 'description-my-key',
+        content: 'desc 3',
+        key: 'desc',
+      },
+    ], {
+      resolveKey(key) {
+        return key.toUpperCase().replace(/-/g, '_')
+      },
+    })
+
+    expect(out).toMatchInlineSnapshot(`
+      {
+        "DESCRIPTION_MY_KEY": "desc 3",
+      }
+    `)
+  })
+
   it('advanced', () => {
     const out = packArray([
       {
