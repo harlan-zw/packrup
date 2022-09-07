@@ -1,4 +1,4 @@
-<h1 align='center'>packerup</h1>
+_<h1 align='center'>packerup</h1>
 
 <p align="center">
 <a href='https://github.com/harlan-zw/packerup/actions/workflows/test.yml'>
@@ -43,7 +43,7 @@ Simple utils to pack (and unpack) arrays and strings to a flat object.
 npm add -D packerup
 ```
 
-## API
+## Pack API
 
 ### packArray
 
@@ -119,197 +119,81 @@ const head = packString('src="https://example.com/image.jpg" width="800" height=
 // }
 ```
 
-### unpackMeta
 
-Define your meta tags in a simple object with full type-safety.
+## Unpack API
+
+### unpackToArray
+
+**Arguments**
+
+- _input_ - `array`
+
+  The array to pack
+
+
+- _options_ -  `{ key: string | string[], value: string | string[] }`
+
+  The options to use to resolve the key and value.
+  By default, will choose first 2 keys of an object.
 
 ```ts
-import { defineHead, resolveMetaFlat } from 'packerup'
+import { unpackToArray } from 'packerup'
 
-const meta = unpackMeta({
-    contentSecurityPolicy: {
-      contentSrc: 'none'
+unpackToArray({
+  'content-security-policy': 'content-src none',
+}, 
+  { key: 'http-equiv', value: 'content' }
+)
+```
+
+### unpackToString
+
+**Arguments**
+
+- _input_ - `object`
+
+  The record to pack.
+
+
+- _options_ -  `{ key: string | string[], value: string | string[] }`
+
+  The options to use to resolve the key and value.
+  By default, will choose first 2 keys of an object.
+
+```ts
+import { unpackToString } from 'packerup'
+
+packObject({ 
+  image: {
+    src: {
+      '1x': 'https://example.com/image.png',
+      '2x': 'https://example.com/image@2x.png'
     },
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      userScalable: 'yes',
-    }
-})
-
-//   [
-//     { 'http-equiv': 'content-security-policy', content: 'content-src none' },
-//     { 'name': 'viewport', content: 'width=device-width, user-scalable=yes, initial-scale=1' }
-//   ]
-```
-
-### packMeta
-
-Turn array meta tags into a flat packed object.
-
-```ts
-import { defineHead, resolveMetaFlat } from 'packerup'
-
-const meta = packMeta([
-  {
-    'content': 'default-src \'self\' https://example.com; content-src none',
-    'http-equiv': 'content-security-policy',
+    alt: 'Example Image'
   },
-  {
-    name: 'description',
-    content: 'desc',
-  },
-  {
-    content: '1234567890',
-    property: 'fb:app_id',
-  },
-])
-
-// {
-//   "description": "desc",
-//   "fbAppId": "1234567890",
-//   "contentSecurityPolicy": "default-src 'self' https://example.com; content-src none"
-// }
-```
-
-### resolveSeoHead
-
-Generate a minimal SEO head with maximum SEO.
-
-Internally this function uses the `withDefaults` and `inferSocialShare` utilities.
-
-- Adds utf-8 charset
-- Sets default best practice viewport
-- Infers social share tags from `title` and `description`
-- Sets twitter card to `summary_large_image`
-- Sets robots best practice
-
-```ts
-import { resolveSeoHead, resolveMetaFlat } from 'packerup'
-
-const head = resolveSeoHead({
-  title: 'Learn about packerup - packerup',
-  description: 'Describing the basic usage of packerup.',
+}, {
+  key: 'image.src.1x',
+  value: 'image.alt'
 })
 
 // {
-//   "title": "My Title",
-//   "meta": [
-//     {
-//       "content": "Some description",
-//       "name": "description",
-//     },
-//     {
-//       "charset": "utf-8",
-//     },
-//     {
-//       "content": "initial-scale=1, width=device-width",
-//       "name": "viewport",
-//     },
-//     {
-//       "content": "My Title",
-//       "property": "og:title",
-//     },
-//     {
-//       "content": "Some description",
-//       "property": "og:description",
-//     },
-//     {
-//       "content": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
-//       "name": "robots",
-//     },
-//   ],
+//    httpEquiv: 'content-src none',
 // }
 ```
 
-## Validation API
+### packString
 
 ```ts
-import { resolveHead } from 'packerup'
-import { HeadSchema } from "@packerup/schema";
+import { packString } from 'packerup'
 
-const tags = resolveHead({
-  meta: [
-    { description: 'My Description' }
-  ]
-})
-
-HeadSchema.safeParse(tags)
-
+const head = packString('src="https://example.com/image.jpg" width="800" height="600"')
 // {
-//   "error": [ZodError: [
-//     {
-//       "code": "custom",
-//       "message": "The attribute `content` must be included.",
-//       "path": [
-//         "meta",
-//         0
-//       ]
-//     }
-//   ]],
-//   "success": false,
+//   "height": "600",
+//   "src": "https://example.com/image.jpg",
+//   "width": "800",
 // }
 ```
 
-## Generate API
-
-### generateHtml
-
-```ts
-import { generateHtml } from 'packerup'
-
-const html = generateHtml({
-  title: 'test',
-  script: [
-    { src: 'https://example.com/script.js' },
-  ],
-  meta: [
-    { name: 'description', content: 'test' },
-  ]
-})
-
-// <title>test</title>
-// <meta content="test" name="description">
-// <script src="https://example.com/script.js"></script>
-```
-
-### generateTags
-
-```ts
-import { generateTags } from 'packerup'
-
-const tags = generateTags({
-  title: 'test',
-  script: [
-    { src: 'https://example.com/script.js' },
-  ],
-  meta: [
-    { name: 'description', content: 'test' },
-  ]
-})
-
-// [
-//   {
-//     "props": {
-//       "children": "test",
-//     },
-//     "tag": "title",
-//   },
-//   {
-//     "props": {
-//       "content": "test",
-//       "name": "description",
-//     },
-//     "tag": "meta",
-//   },
-//   {
-//     "props": {
-//       "src": "https://example.com/script.js",
-//     },
-//     "tag": "script",
-//   },
-// ]
-```
 
 ## Sponsors
 
@@ -322,4 +206,4 @@ const tags = generateTags({
 
 ## License
 
-MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)
+MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)_
