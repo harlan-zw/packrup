@@ -41,7 +41,7 @@ Simple utils to pack (and unpack) arrays and strings to a flat object.
 npm add -D packrup
 ```
 
-## Pack API
+## API
 
 ### packArray
 
@@ -61,11 +61,11 @@ npm add -D packrup
 import { packArray } from 'packrup'
 
 packArray([
-  { httpEquiv: 'content-security-policy', content: 'content-src none' }
+  { 'http-equiv': 'content-security-policy', content: 'content-src none' }
 ])
 
 // {
-//    httpEquiv: 'content-src none',
+//    'content-security-policy': 'content-src none',
 // }
 ```
 
@@ -116,9 +116,6 @@ const head = packString('src="https://example.com/image.jpg" width="800" height=
 //   "width": "800",
 // }
 ```
-
-
-## Unpack API
 
 ### unpackToArray
 
