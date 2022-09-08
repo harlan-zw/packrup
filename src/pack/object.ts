@@ -14,19 +14,38 @@ export function packObject<T extends Record<string, any>>(input: T, options?: Pa
   options.value = options.value || v
   options.resolveKey = options.resolveKey || (k => k as string)
 
-  const resolveOption = (index: keyof PackOptions<T>) => {
+  const resolveKey = (index: keyof PackOptions<T>) => {
     const arr = (asArray(options?.[index]))
-    return arr.find(k => k && keys.includes(k))
+    return arr.find((k) => {
+      if (typeof k === 'string' && k.includes('.')) {
+        // use dot notation to get the value
+        return k
+      }
+      return k && keys.includes(k)
+    })
   }
 
-  k = resolveOption('key') || k
-  v = resolveOption('value') || v
+  const resolveValue = (k: string, input: any) => {
+    if (k.includes('.')) {
+      // use dot notation to get the value
+      const paths = k.split('.')
+      let val: any = input
+      for (const path of paths)
+        val = val[path]
+      return val
+    }
+    return input[k]
+  }
 
-  const keyPrefix = input.key ? `${InternalKeySymbol}${input.key}-` : '' || ''
+  k = resolveKey('key') || k
+  v = resolveKey('value') || v
 
-  const key = options.resolveKey(input[k])
+  const dedupeKeyPrefix = input.key ? `${InternalKeySymbol}${input.key}-` : '' || ''
+
+  let keyValue = resolveValue(k as string, input)
+  keyValue = options.resolveKey(keyValue)
 
   return {
-    [`${keyPrefix}${key}`]: input?.[v],
+    [`${dedupeKeyPrefix}${keyValue}`]: resolveValue(v as string, input),
   } as Partial<T>
 }
