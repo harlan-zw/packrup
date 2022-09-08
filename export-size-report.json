@@ -36,18 +36,18 @@
       "bundled": 1194
     },
     {
+      "name": "unpackToString",
+      "path": "dist/index.mjs",
+      "minified": 427,
+      "minzipped": 230,
+      "bundled": 802
+    },
+    {
       "name": "unpackToArray",
       "path": "dist/index.mjs",
       "minified": 388,
       "minzipped": 229,
       "bundled": 788
-    },
-    {
-      "name": "unpackToString",
-      "path": "dist/index.mjs",
-      "minified": 407,
-      "minzipped": 217,
-      "bundled": 779
     },
     {
       "name": "packString",
