@@ -102,7 +102,7 @@ packObject({
 })
 
 // {
-//    httpEquiv: 'content-src none',
+//   "https://example.com/image.png": "Example Image",
 // }
 ```
 
@@ -152,48 +152,39 @@ unpackToArray({
 
 - _input_ - `object`
 
-  The record to pack.
+  The record to unpack to a string.
 
 
-- _options_ -  `{ key: string | string[], value: string | string[] }`
+- _options_ 
 
-  The options to use to resolve the key and value.
-  By default, will choose first 2 keys of an object.
+```ts
+export interface TransformValueOptions {
+  entrySeparator?: string
+  keyValueSeparator?: string
+  wrapValue?: string
+  resolve?: (ctx: { key: string; value: unknown }) => string | void
+}
+```
 
 ```ts
 import { unpackToString } from 'packrup'
 
-packObject({ 
-  image: {
-    src: {
-      '1x': 'https://example.com/image.png',
-      '2x': 'https://example.com/image@2x.png'
-    },
-    alt: 'Example Image'
-  },
+unpackToString({
+  'noindex': true,
+  'nofollow': true,
+  'max-snippet': 20,
+  'maxi-image-preview': 'large',
 }, {
-  key: 'image.src.1x',
-  value: 'image.alt'
+  resolve({ key, value }) {
+    if (typeof value === 'boolean')
+      return `${key}`
+  },
+  keyValueSeparator: ':',
+  entrySeparator: ', ',
 })
 
-// {
-//    httpEquiv: 'content-src none',
-// }
+// "noindex, nofollow, max-snippet:20, maxi-image-preview:large"
 ```
-
-### packString
-
-```ts
-import { packString } from 'packrup'
-
-const head = packString('src="https://example.com/image.jpg" width="800" height="600"')
-// {
-//   "height": "600",
-//   "src": "https://example.com/image.jpg",
-//   "width": "800",
-// }
-```
-
 
 ## Sponsors
 
