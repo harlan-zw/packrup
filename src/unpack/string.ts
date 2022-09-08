@@ -1,17 +1,27 @@
-export function unpackToString<T extends Record<keyof T, any>>(input: T, options?: { resolveKey?: (key: string) => string; resolveValue?: (value: unknown) => unknown }) {
-  const unpacked: any[] = []
-  options = options || {}
-  const kFn = options.resolveKey || ((k: string) => k)
-  const vFn = options.resolveValue || ((k: string) => k)
+export interface TransformValueOptions {
+  entrySeparator?: string
+  keyValueSeparator?: string
+  wrapValue?: string
+  resolve?: (ctx: { key: string; value: unknown }) => string | void
+}
 
-  if (typeof input === 'string')
-    return vFn(input)
-
-  for (const [k, v] of Object.entries(input)) {
-    unpacked.push(...(Array.isArray(v) ? v : [v]).map((i) => {
-      return `${kFn(k)}="${vFn(i)}"`
-    }))
-  }
-
-  return unpacked.join(' ')
+export function unpackToString<T extends Record<keyof T, unknown>>(value: T, options: TransformValueOptions): string {
+  return Object.entries(value)
+    .map(([key, value]) => {
+      if (typeof value === 'object')
+        value = unpackToString(value as Record<keyof T, any>, options)
+      if (options.resolve) {
+        const resolved = options.resolve({ key, value })
+        if (resolved)
+          return resolved
+      }
+      if (typeof value === 'number')
+        value = value.toString()
+      if (typeof value === 'string' && options.wrapValue) {
+        value = value.replace(new RegExp(options.wrapValue, 'g'), `\\${options.wrapValue}`)
+        value = `${options.wrapValue}${value}${options.wrapValue}`
+      }
+      return `${key}${options.keyValueSeparator || ''}${value}`
+    })
+    .join(options.entrySeparator || '')
 }
