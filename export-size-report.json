@@ -24,16 +24,16 @@
     {
       "name": "packArray",
       "path": "dist/index.mjs",
-      "minified": 591,
-      "minzipped": 335,
-      "bundled": 1341
+      "minified": 745,
+      "minzipped": 403,
+      "bundled": 1743
     },
     {
       "name": "packObject",
       "path": "dist/index.mjs",
-      "minified": 359,
-      "minzipped": 230,
-      "bundled": 792
+      "minified": 513,
+      "minzipped": 300,
+      "bundled": 1194
     },
     {
       "name": "unpackToArray",
@@ -45,9 +45,9 @@
     {
       "name": "unpackToString",
       "path": "dist/index.mjs",
-      "minified": 257,
-      "minzipped": 181,
-      "bundled": 491
+      "minified": 407,
+      "minzipped": 217,
+      "bundled": 779
     },
     {
       "name": "packString",
