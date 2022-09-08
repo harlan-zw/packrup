@@ -12,7 +12,7 @@ export function unpackToString<T extends Record<keyof T, unknown>>(value: T, opt
         value = unpackToString(value as Record<keyof T, any>, options)
       if (options.resolve) {
         const resolved = options.resolve({ key, value })
-        if (resolved)
+        if (typeof resolved !== 'undefined')
           return resolved
       }
       if (typeof value === 'number')
