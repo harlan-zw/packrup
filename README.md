@@ -34,11 +34,20 @@ Simple utils to pack (and unpack) arrays and strings to a flat object.
 - Supports nested key selections with `dot.notation`
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/packrup/blob/main/export-size-report.json))
 
+## Background
+
+This package was built to support the utilities of [zhead](https://github.com/harlan-zw/zhead) in an abstract way.
+
+These utils were meant to be fully typed, but I struggled with the implementation. If you want a fun TypeScript challenge 
+then feel free to open a PR :).
 
 ## Installation
 
 ```bash
-npm add -D packrup
+npm install --save-dev packrup
+
+# Using yarn
+yarn add --dev packrup
 ```
 
 ## API
