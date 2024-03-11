@@ -15,32 +15,24 @@
       "vitest"
     ],
     "versions": {
-      "export-size": "0.5.2",
-      "esbuild": "^0.13.8",
-      "brotli-size": "^4.0.0"
+      "export-size": "0.7.0",
+      "esbuild": "^0.19.5"
     }
   },
   "exports": [
     {
       "name": "packArray",
       "path": "dist/index.mjs",
-      "minified": 745,
-      "minzipped": 403,
-      "bundled": 1743
+      "minified": 743,
+      "minzipped": 401,
+      "bundled": 1741
     },
     {
       "name": "packObject",
       "path": "dist/index.mjs",
-      "minified": 513,
-      "minzipped": 300,
-      "bundled": 1194
-    },
-    {
-      "name": "unpackToString",
-      "path": "dist/index.mjs",
-      "minified": 427,
-      "minzipped": 230,
-      "bundled": 802
+      "minified": 511,
+      "minzipped": 303,
+      "bundled": 1192
     },
     {
       "name": "unpackToArray",
@@ -50,11 +42,18 @@
       "bundled": 788
     },
     {
+      "name": "unpackToString",
+      "path": "dist/index.mjs",
+      "minified": 418,
+      "minzipped": 226,
+      "bundled": 802
+    },
+    {
       "name": "packString",
       "path": "dist/index.mjs",
       "minified": 128,
       "minzipped": 103,
-      "bundled": 242
+      "bundled": 256
     },
     {
       "name": "InternalKeySymbol",

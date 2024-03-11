@@ -14,7 +14,7 @@ describe('unpack string', () => {
       wrapValue: '"',
       entrySeparator: ' ',
     })
-    expect(packed).toMatchInlineSnapshot('"src=\\"https://example.com/image.jpg\\" width=\\"800\\" height=\\"600\\" alt=\\"My image\\" secure_url=\\"https://example.com/image.jpg\\""')
+    expect(packed).toMatchInlineSnapshot(`"src="https://example.com/image.jpg" width="800" height="600" alt="My image" secure_url="https://example.com/image.jpg""`)
   })
 
   it('viewport', () => {

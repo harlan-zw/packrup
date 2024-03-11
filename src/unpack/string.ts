@@ -2,7 +2,7 @@ export interface TransformValueOptions {
   entrySeparator?: string
   keyValueSeparator?: string
   wrapValue?: string
-  resolve?: (ctx: { key: string; value: unknown }) => string | void
+  resolve?: (ctx: { key: string, value: unknown }) => string | void
 }
 
 export function unpackToString<T extends Record<keyof T, unknown>>(value: T, options: TransformValueOptions): string {

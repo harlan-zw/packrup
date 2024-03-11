@@ -1,4 +1,4 @@
-interface Context { key: string; value: any }
+interface Context { key: string, value: any }
 type ResolveFn = (ctx: Context) => string
 
 export interface UnpackArrayOptions {

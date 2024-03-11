@@ -15,7 +15,7 @@ export function packObject<T extends Record<string, any>>(input: T, options?: Pa
   options.resolveKey = options.resolveKey || (k => k as string)
 
   const resolveKey = (index: keyof PackOptions<T>) => {
-    const arr = (asArray(options?.[index]))
+    const arr = (asArray(options![index]))
     return arr.find((k) => {
       if (typeof k === 'string' && k.includes('.')) {
         // use dot notation to get the value

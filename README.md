@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-Simple utils to pack (and unpack) arrays and strings to a flat object.  
+Simple utils to pack (and unpack) arrays and strings to a flat object.
 </p>
 
 <p align="center">
@@ -26,7 +26,6 @@ Simple utils to pack (and unpack) arrays and strings to a flat object.
 </table>
 </p>
 
-
 ## Features
 
 - Pack arrays, objects and strings to a flat object
@@ -38,7 +37,7 @@ Simple utils to pack (and unpack) arrays and strings to a flat object.
 
 This package was built to support the utilities of [zhead](https://github.com/harlan-zw/zhead) in an abstract way.
 
-These utils were meant to be fully typed, but I struggled with the implementation. If you want a fun TypeScript challenge 
+These utils were meant to be fully typed, but I struggled with the implementation. If you want a fun TypeScript challenge
 then feel free to open a PR :).
 
 ## Installation
@@ -60,17 +59,16 @@ yarn add --dev packrup
 
   The array to pack
 
-
 - _options_ -  `{ key: string | string[], value: string | string[] }`
 
-  The options to use to resolve the key and value. 
+  The options to use to resolve the key and value.
   By default, will choose first 2 keys of an object.
 
 ```ts
 import { packArray } from 'packrup'
 
 packArray([
-  { 'http-equiv': 'content-security-policy', content: 'content-src none' }
+  { 'http-equiv': 'content-security-policy', 'content': 'content-src none' }
 ])
 
 // {
@@ -86,7 +84,6 @@ packArray([
 
   The record to pack.
 
-
 - _options_ -  `{ key: string | string[], value: string | string[] }`
 
   The options to use to resolve the key and value.
@@ -95,7 +92,7 @@ packArray([
 ```ts
 import { packObject } from 'packrup'
 
-packObject({ 
+packObject({
   image: {
     src: {
       '1x': 'https://example.com/image.png',
@@ -134,7 +131,6 @@ const head = packString('src="https://example.com/image.jpg" width="800" height=
 
   The array to pack
 
-
 - _options_ -  `{ key: string | string[], value: string | string[] }`
 
   The options to use to resolve the key and value.
@@ -145,9 +141,7 @@ import { unpackToArray } from 'packrup'
 
 unpackToArray({
   'content-security-policy': 'content-src none',
-}, 
-  { key: 'http-equiv', value: 'content' }
-)
+}, { key: 'http-equiv', value: 'content' })
 ```
 
 ### unpackToString
@@ -158,15 +152,14 @@ unpackToArray({
 
   The record to unpack to a string.
 
-
-- _options_ 
+- _options_
 
 ```ts
 export interface TransformValueOptions {
   entrySeparator?: string
   keyValueSeparator?: string
   wrapValue?: string
-  resolve?: (ctx: { key: string; value: unknown }) => string | void
+  resolve?: (ctx: { key: string, value: unknown }) => string | void
 }
 ```
 
@@ -197,7 +190,6 @@ unpackToString({
     <img src='https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg'/>
   </a>
 </p>
-
 
 ## License
 

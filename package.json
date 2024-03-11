@@ -1,7 +1,8 @@
 {
   "name": "packrup",
+  "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@7.8.0",
+  "packageManager": "pnpm@8.15.4",
   "description": "Node Schema.org for Simple and Automated Google Rich Results",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
@@ -23,8 +24,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
   "main": "dist/index.cjs",
@@ -39,19 +40,19 @@
     "test": "vitest",
     "export:sizes": "npx export-size . -r",
     "release": "bumpp package.json --commit --push --tag",
-    "lint": "eslint \"**/*.{ts,vue,json,yml}\" --fix"
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.26.3",
-    "@types/fs-extra": "^9.0.13",
-    "@vitest/ui": "^0.23.1",
-    "bumpp": "^8.2.1",
-    "eslint": "^8.23.0",
-    "fs-extra": "^10.1.0",
-    "jsdom": "^20.0.0",
-    "typescript": "^4.8.2",
-    "unbuild": "^0.8.10",
-    "utility-types": "^3.10.0",
-    "vitest": "^0.23.1"
+    "@antfu/eslint-config": "^2.8.0",
+    "@types/fs-extra": "^11.0.4",
+    "@vitest/ui": "^1.3.1",
+    "bumpp": "^9.4.0",
+    "eslint": "^8.57.0",
+    "fs-extra": "^11.2.0",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.4.2",
+    "unbuild": "^2.0.0",
+    "utility-types": "^3.11.0",
+    "vitest": "^1.3.1"
   }
 }
