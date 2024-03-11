@@ -17,7 +17,7 @@ Simple utils to pack (and unpack) arrays and strings to a flat object.
 <tbody>
 <td align="center">
 <img width="800" height="0" /><br>
-<i>Status:</i> In Development</b> <br>
+<i>Status:</i> Stable</b> <br>
 <sup> Please report any issues 🐛</sup><br>
 <sub>Made possible by my <a href="https://github.com/sponsors/harlan-zw">Sponsor Program 💖</a><br> Follow me <a href="https://twitter.com/harlan_zw">@harlan_zw</a> 🐦 • Join <a href="https://discord.gg/275MBUBvgP">Discord</a> for help</sub><br>
 <img width="800" height="0" />
@@ -26,6 +26,32 @@ Simple utils to pack (and unpack) arrays and strings to a flat object.
 </table>
 </p>
 
+## Background
+
+The [zhead](https://github.com/harlan-zw/zhead) package provides a flat-object style API for HTML `<meta>` tags,
+to make this happen we need to pack and unpack arrays and strings to a flat object.
+
+For example, the following object:
+
+```json
+{
+  "viewport": {
+    "content": {
+      "width": "device-width",
+      "initial-scale": "1"
+    }
+  }
+}
+```
+
+Can be packed to the below (and vice versa):
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+
+For an example see [useSeoMeta](https://github.com/unjs/unhead/blob/main/packages/shared/src/meta.ts).
+
 ## Features
 
 - Pack arrays, objects and strings to a flat object
@@ -33,12 +59,10 @@ Simple utils to pack (and unpack) arrays and strings to a flat object.
 - Supports nested key selections with `dot.notation`
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/packrup/blob/main/export-size-report.json))
 
-## Background
-
-This package was built to support the utilities of [zhead](https://github.com/harlan-zw/zhead) in an abstract way.
+## Help Wanted
 
 These utils were meant to be fully typed, but I struggled with the implementation. If you want a fun TypeScript challenge
-then feel free to open a PR :).
+then please open a PR :).
 
 ## Installation
 
