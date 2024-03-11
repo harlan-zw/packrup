@@ -1,7 +1,7 @@
 {
   "name": "packrup",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "packageManager": "pnpm@8.15.4",
   "description": "Node Schema.org for Simple and Automated Google Rich Results",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
