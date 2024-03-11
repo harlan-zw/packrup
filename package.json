@@ -39,7 +39,7 @@
     "stub": "unbuild --stub",
     "test": "vitest",
     "export:sizes": "npx export-size . -r",
-    "release": "bumpp package.json --commit --push --tag",
+    "release": "pnpm build && bumpp && pnpm -r publish --no-git-checks",
     "lint": "eslint . --fix"
   },
   "devDependencies": {
